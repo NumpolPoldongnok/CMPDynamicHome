@@ -1,14 +1,93 @@
-This is a Kotlin Multiplatform project targeting Android, iOS.
+# Dynamic Home Screen with Jetpack Compose  
 
-* `/composeApp` is for code that will be shared across your Compose Multiplatform applications.
-  It contains several subfolders:
-  - `commonMain` is for code that’s common for all targets.
-  - Other folders are for Kotlin code that will be compiled for only the platform indicated in the folder name.
-    For example, if you want to use Apple’s CoreCrypto for the iOS part of your Kotlin app,
-    `iosMain` would be the right folder for such calls.
+This project demonstrates a dynamic and interactive home screen built using **Jetpack Compose**. The design includes smooth animations, drag-and-snap behavior, and responsive UI components. It's inspired by modern super-apps like **TrueMoney** and showcases the potential of **Compose Multiplatform** for building cross-platform apps.  
 
-* `/iosApp` contains iOS applications. Even if you’re sharing your UI with Compose Multiplatform, 
-  you need this entry point for your iOS app. This is also where you should add SwiftUI code for your project.
+---
 
+## Features  
 
-Learn more about [Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html)…
+- **Animated Header & Cover Section**  
+  - Smooth animations using `animateFloatAsState`.  
+  - Expandable and collapsible cover section with snap-to-position behavior.  
+
+- **Drag Gesture Handling**  
+  - Implemented `pointerInput` and `detectVerticalDragGestures` to provide an intuitive drag experience.  
+  - Covers dynamic ratio-based snapping for responsive feedback.  
+
+- **Responsive Design**  
+  - Utilizes `BoxWithConstraints` for adaptive layout.  
+  - Resizes and positions elements dynamically based on screen dimensions.  
+
+- **Animated Visibility**  
+  - Transitions UI elements in and out of view using `AnimatedVisibility`.  
+
+---
+
+## How It Works  
+
+1. **Gesture Handling**  
+   - Drag gestures are detected using `pointerInput` and `detectVerticalDragGestures`.  
+   - Based on the drag amount, the offset is updated and mapped to a ratio for animation and snapping decisions.  
+
+2. **Smooth Animations**  
+   - The `animateFloatAsState` API ensures transitions between states are smooth and visually appealing.  
+
+3. **Snap Behavior**  
+   - Thresholds determine whether the cover expands, collapses, or snaps back.  
+   - Example:  
+     - Dragging beyond 30% of the height collapses the cover.  
+     - Dragging below 70% when collapsed expands the cover.  
+
+4. **Responsive Layout**  
+   - `BoxWithConstraints` calculates layout dimensions dynamically, ensuring the UI adapts to various screen sizes.  
+
+---
+
+## Requirements  
+
+- **Kotlin**  
+- **Jetpack Compose**  
+- **Android Studio Flamingo+**  
+
+---
+
+## How to Run  
+
+1. Clone this repository:  
+   ```bash  
+   git clone https://github.com/yourusername/dynamic-home-screen.git  
+   ```  
+
+2. Open the project in **Android Studio**.  
+
+3. Build and run the project on an Android or iOS emulator/device.  
+
+---
+
+## Future Enhancements  
+
+- Add more complex animations and transitions.  
+- Support landscape mode and tablet layouts.  
+- Implement additional UI components inspired by super-app designs.  
+
+---
+
+## Contributing  
+
+Contributions are welcome! Please fork the repository and submit a pull request with your changes.  
+
+---
+
+## License  
+
+This project is licensed under the [MIT License](LICENSE).  
+
+---
+
+## Acknowledgments  
+
+Special thanks to the Jetpack Compose team for enabling cross-platform UI development with robust animation support.  
+
+---  
+
+Happy coding! 🚀
